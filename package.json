@@ -1,0 +1,13 @@
+{
+  "name": "digital-card",
+  "version": "1.0.0",
+  "description": "Digital visiting card for Dr. Rajashri Sonti",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "qrcode": "^1.5.3"
+  }
+}

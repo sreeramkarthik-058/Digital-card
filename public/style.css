@@ -1,0 +1,348 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --green:        #4a6741;
+  --green-light:  #5d7e54;
+  --green-pale:   #eef2eb;
+  --gold:         #b8933f;
+  --gold-light:   #d4ac5a;
+  --gold-pale:    #f5edda;
+  --ivory:        #f7f5f0;
+  --ivory-mid:    #ede9e0;
+  --ivory-dark:   #ddd8cc;
+  --white:        #ffffff;
+  --text-dark:    #2a2520;
+  --text-mid:     #5a5248;
+  --text-muted:   #8a8078;
+}
+
+html, body {
+  min-height: 100%;
+  background: var(--ivory);
+  font-family: 'Jost', system-ui, sans-serif;
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page wrapper ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem 3rem;
+}
+
+/* ── Card ── */
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(42,37,32,0.04),
+    0 8px 24px rgba(42,37,32,0.08),
+    0 24px 48px rgba(42,37,32,0.06);
+  border: 1px solid var(--ivory-mid);
+}
+
+/* ── Header ── */
+.card-header {
+  background: var(--white);
+  padding: 2.2rem 2rem 1.8rem;
+  text-align: center;
+  border-bottom: 1px solid var(--ivory-mid);
+}
+
+/* ── Logo ── */
+.logo-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.brand-logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── Name & Titles ── */
+.name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 0.2px;
+  line-height: 1.15;
+}
+
+.founder {
+  margin-top: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--green);
+  letter-spacing: 0.3px;
+}
+
+.degree {
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.title-divider {
+  margin: 1rem auto 0;
+  width: 40px;
+  height: 1.5px;
+  background: var(--gold);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* ── Save to Contact CTA ── */
+.cta-section {
+  padding: 1.6rem 1.5rem 1.2rem;
+}
+
+.btn-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background: var(--green);
+  color: var(--white);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(74,103,65,0.3);
+  animation: pulse-green 3s ease-in-out infinite;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.btn-save:hover, .btn-save:focus {
+  background: var(--green-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(74,103,65,0.38);
+  outline: none;
+}
+
+.btn-save:active { transform: scale(0.98); }
+
+.btn-save svg { flex-shrink: 0; }
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 4px 16px rgba(74,103,65,0.28); }
+  50%       { box-shadow: 0 4px 24px rgba(74,103,65,0.46); }
+}
+
+/* ── Section divider ── */
+.section-divider {
+  height: 1px;
+  background: var(--ivory-mid);
+  margin: 0 1.5rem 1.25rem;
+}
+
+/* ── Section blocks ── */
+.section {
+  padding: 0 1.5rem 1.25rem;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+/* ── Contact rows ── */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  background: var(--ivory);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-dark);
+  border: 1px solid var(--ivory-mid);
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.contact-row:hover, .contact-row:focus {
+  background: var(--white);
+  border-color: var(--ivory-dark);
+  transform: translateX(2px);
+  box-shadow: 0 3px 12px rgba(42,37,32,0.07);
+  outline: none;
+}
+
+.contact-row:active { transform: scale(0.99); }
+
+.contact-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon.phone { background: var(--green-pale); }
+.contact-icon.email { background: var(--gold-pale); }
+
+.contact-info { flex: 1; min-width: 0; }
+
+.contact-type {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+.contact-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-top: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-arrow {
+  color: var(--ivory-dark);
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Social chips ── */
+.social-grid {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.social-chip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border: 1px solid var(--ivory-mid);
+  background: var(--ivory);
+  color: var(--text-mid);
+  transition: transform 0.13s, box-shadow 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.social-chip:hover, .social-chip:focus {
+  background: var(--white);
+  border-color: var(--ivory-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(42,37,32,0.08);
+  outline: none;
+}
+
+.social-chip:active { transform: scale(0.97); }
+
+.chip-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chip-instagram .chip-icon { background: #fce4ec; }
+.chip-instagram { color: #ad1457; }
+
+.chip-linkedin .chip-icon { background: #dce8f5; }
+.chip-linkedin { color: #1565c0; }
+
+.chip-website .chip-icon { background: var(--green-pale); }
+.chip-website { color: var(--green); }
+
+/* ── QR section ── */
+.qr-section {
+  padding: 0 1.5rem 1.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.qr-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ivory-mid);
+  letter-spacing: 0.3px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.qr-link:hover {
+  color: var(--green);
+  border-color: #c5d4be;
+  background: var(--green-pale);
+}
+
+/* ── Footer ── */
+.card-footer {
+  padding: 0.9rem 1.5rem 1.2rem;
+  text-align: center;
+  border-top: 1px solid var(--ivory-mid);
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── Responsive tweaks ── */
+@media (max-width: 360px) {
+  .name { font-size: 1.75rem; }
+  .brand-logo { width: 100px; }
+  .social-chip span { font-size: 0.62rem; }
+}
