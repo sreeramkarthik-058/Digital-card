@@ -28,7 +28,7 @@
 
       <!-- ── Save to Contact ── -->
       <div class="cta-section">
-        <a href="/contact.vcf" id="btn-save" class="btn-save" download="Dr-Rajashri-Sonti.vcf">
+        <a href="/contact.vcf" class="btn-save" download="Dr-Rajashri-Sonti.vcf">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
@@ -143,41 +143,5 @@
 
     </div>
   </div>
-  <script>
-    document.getElementById('btn-save').addEventListener('click', function (e) {
-      var isAndroid = /android/i.test(navigator.userAgent);
-      if (!isAndroid) return; // iOS and desktop: let the default href behaviour handle it
-
-      e.preventDefault();
-
-      var vcard = [
-        'BEGIN:VCARD',
-        'VERSION:3.0',
-        'FN:Dr. Rajashri Sonti',
-        'ORG:Rasayani Ayurveda',
-        'TITLE:MD Ayurveda',
-        'TEL;TYPE=CELL:+918788119332',
-        'EMAIL:info@ayurasayani.com',
-        'URL:https://ayurasayani.com',
-        'X-SOCIALPROFILE;type=instagram:https://www.instagram.com/rasayani_ayurveda/',
-        'X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/dr-rajashrisonti/',
-        'END:VCARD'
-      ].join('\r\n');
-
-      var blob = new Blob([vcard], { type: 'text/vcard' });
-      var url = URL.createObjectURL(blob);
-
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = 'Dr-Rajashri-Sonti.vcf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      window.open(url); // fallback: prompts the Contacts app directly on some Android browsers
-
-      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
-    });
-  </script>
 </body>
 </html>
